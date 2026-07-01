@@ -9,8 +9,5 @@
 <sup>3</sup>  University of Genoa
 </div>
 
-# Overview
-<img width="937" height="397" alt="method_aia_v3_page-0001" src="https://github.com/user-attachments/assets/ad22b910-aae6-40f9-9888-b11395210030" />
-
-</div>
+<img width="2140" height="1042" alt="method_aia_3_page-0001" src="https://github.com/user-attachments/assets/952e798c-08e5-48dd-ab6c-9a3a210ee39f" />
 
