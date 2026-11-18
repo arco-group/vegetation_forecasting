@@ -75,12 +75,12 @@ class RunningStats:
 def add_calendar_features(df, harmonics=3):
     """Day of year and its Fourier harmonics (period 366 days)."""
     doy = df.index.dayofyear
-    df["day_of_year"] = doy
     base = (np.asarray(doy - 1) % 366) / 366
+    cols = {"day_of_year": np.asarray(doy)}
     for h in range(1, harmonics + 1):
-        df[f"day_of_year_fourier_sin_{h}"] = np.sin(2 * np.pi * h * base)
-        df[f"day_of_year_fourier_cos_{h}"] = np.cos(2 * np.pi * h * base)
-    return df
+        cols[f"day_of_year_fourier_sin_{h}"] = np.sin(2 * np.pi * h * base)
+        cols[f"day_of_year_fourier_cos_{h}"] = np.cos(2 * np.pi * h * base)
+    return pd.concat([df, pd.DataFrame(cols, index=df.index)], axis=1)
 
 
 def load_tile_metadata(path):
