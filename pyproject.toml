@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veg_forecast"
+version = "2.0.0"
+description = "Probabilistic multi-output vegetation-index forecasting from sparse clear-sky Sentinel-2 time series"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = ["numpy>=2.0", "pandas>=2.0", "torch>=2.1", "tqdm>=4.60"]
+
+[project.optional-dependencies]
+fix = ["h5py>=3.8"]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["veg_forecast*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

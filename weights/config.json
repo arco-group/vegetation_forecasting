@@ -1,0 +1,72 @@
+{
+  "input_dim": 30,
+  "quantiles": [
+    0.1,
+    0.5,
+    0.9
+  ],
+  "num_targets": 3,
+  "d_model": 128,
+  "num_layers": 8,
+  "num_heads": 8,
+  "dim_feedforward": 512,
+  "dropout": 0.1,
+  "target_names": [
+    "avg_NDVI_clear_sky",
+    "avg_GNDVI_clear_sky",
+    "avg_EVI_clear_sky"
+  ],
+  "feature_names": [
+    "wind",
+    "humidity",
+    "solar_irradiance",
+    "rainfall",
+    "pressure",
+    "avg_temperature",
+    "min_temperature",
+    "max_temperature",
+    "thick_clouds",
+    "thin_clouds",
+    "clouds_shadows",
+    "day_of_year",
+    "day_of_year_fourier_sin_1",
+    "day_of_year_fourier_cos_1",
+    "day_of_year_fourier_sin_2",
+    "day_of_year_fourier_cos_2",
+    "day_of_year_fourier_sin_3",
+    "day_of_year_fourier_cos_3",
+    "rain_cum_between_targets",
+    "temp_lt_10_between_targets",
+    "temp_gt_30_between_targets",
+    "rain_cum_7d",
+    "rain_cum_14d",
+    "temp_lt_10_7d",
+    "temp_gt_30_7d",
+    "temp_lt_10_14d",
+    "temp_gt_30_14d",
+    "target_history_avg_NDVI_clear_sky",
+    "target_history_avg_GNDVI_clear_sky",
+    "target_history_avg_EVI_clear_sky"
+  ],
+  "masked_future_features": [
+    "thick_clouds",
+    "thin_clouds",
+    "clouds_shadows",
+    "rain_cum_between_targets",
+    "temp_lt_10_between_targets",
+    "temp_gt_30_between_targets"
+  ],
+  "training": {
+    "min_crop_pixels": 60.0,
+    "targets": "avg_NDVI_clear_sky,avg_GNDVI_clear_sky,avg_EVI_clear_sky",
+    "temporal_cutoff": "2019-06-01",
+    "epochs": 200,
+    "batch_size": 128,
+    "lr": 0.0001,
+    "lr_factor": 0.2,
+    "lr_patience": 20,
+    "lr_min": 5e-05,
+    "time_weight_alpha": 0.1,
+    "seed": 42
+  }
+}

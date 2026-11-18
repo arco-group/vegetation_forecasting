@@ -1,9 +1,11 @@
-# Dipendenze pip necessarie per gli script in `dataset_builder/` e `model/`.
-# I moduli locali `agrimatnet/` e `dataset_builder/` sono parte del workspace
-# e non vanno installati via pip.
+# Tested with Python 3.10 and the versions below (minimum versions in parentheses).
+numpy>=2.0        # tested 2.2.6
+pandas>=2.0       # tested 2.3.3
+torch>=2.1        # tested 2.12.1
+tqdm>=4.60        # tested 4.70.1
 
-numpy==2.1.3
-pandas==2.3.3
-torch==2.7.1
-tqdm==4.67.1
-matplotlib==3.10.8
+# Only for scripts/fix_timeseries.py (reads the raw GreenEarthNet cubes)
+h5py>=3.8
+
+# Only for the smoke tests
+pytest>=7
