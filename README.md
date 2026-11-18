@@ -33,32 +33,11 @@ acquisitions, whose dates are never given as input.
 ## Repository structure
 
 ```
-vegetation_forecasting/
-├── veg_forecast/                 # Python package
-│   ├── model.py                  # VegForecaster + pinball loss
-│   ├── layers.py                 # positional encoding
-│   ├── constants.py              # column names, targets, masked future features
-│   ├── metrics.py                # MAE, RMSE, WMAPE, MASE, pinball, CRPS, coverage, interval width
-│   ├── inference.py              # load the released weights, forecast a cache
-│   └── data/
-│       ├── cache_builder.py      # CSV -> windowed cache (.npz/.json per tile) + scaler.json (NumPy/pandas only)
-│       ├── dataset.py            # PyTorch dataset: engineered features, scaling, future-feature masking
-│       ├── collate.py            # padding / masks for variable-length windows
-│       ├── scaler.py             # standardization + arcsinh scaler
-│       └── splits.py             # temporal internal train/validation split
-├── scripts/
-│   ├── fix_timeseries.py         # recompute the VI columns of the CSVs from the raw cubes (data corrections)
-│   ├── build_cache.py            # build the cache of one split
-│   ├── train.py                  # training (defaults = released model)
-│   └── predict.py                # forecasts + metrics on one split
-├── weights/                      # released model (seed 42)
-│   ├── model.pt                  # state dict
-│   ├── config.json               # architecture, feature order, training configuration
-│   ├── scaler.json               # training feature/target statistics
-│   └── feature_engineering_stats.json
-├── metadata/tile_metadata.csv    # per-tile cropland share (training filter) and Köppen–Geiger climate
-├── tests/                        # smoke tests on synthetic data
-└── assets/                       # figures
+veg_forecast/         # Python package: model (model.py), data pipeline (data/), metrics, inference
+scripts/              # fix_timeseries.py -> build_cache.py -> train.py -> predict.py
+weights/              # released model (seed 42): state dict, config, scaler, feature statistics
+metadata/             # per-tile cropland share (training filter) and Köppen–Geiger climate
+tests/                # smoke tests on synthetic data
 ```
 
 ## Installation
