@@ -185,18 +185,6 @@ The defaults reproduce the released model:
 
 The paper reports the mean over seeds 42, 43 and 44. The released weights are those of seed 42.
 
-## Results of the released weights
-
-`scripts/predict.py` with `weights/` on the corrected test caches. The table reports MAE / CRPS / coverage of the
-q0.1–q0.9 interval:
-
-| Subset | Windows | NDVI | GNDVI | EVI |
-| --- | ---: | --- | --- | --- |
-| val (in-distribution) | 3,336 | 0.0641 / 0.0389 / 0.70 | 0.0517 / 0.0319 / 0.65 | 0.0584 / 0.0355 / 0.73 |
-| OOD-t (temporal) | 6,511 | 0.0673 / 0.0411 / 0.69 | 0.0546 / 0.0341 / 0.65 | 0.0629 / 0.0385 / 0.71 |
-| OOD-s (spatial) | 25,576 | 0.0796 / 0.0482 / 0.68 | 0.0640 / 0.0396 / 0.65 | 0.0790 / 0.0485 / 0.69 |
-| OOD-st (spatio-temporal) | 18,670 | 0.0802 / 0.0488 / 0.66 | 0.0641 / 0.0398 / 0.63 | 0.0823 / 0.0506 / 0.66 |
-
 ## License
 
 MIT, see [LICENSE](LICENSE).
